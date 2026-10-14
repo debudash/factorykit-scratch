@@ -18,7 +18,7 @@ reviewer_model = "sonnet"
 [verify]
 test = "python -m unittest discover -s tests"
 typecheck = ""
-lint = ""
+lint = "ruff check ."
 build = ""
 ```
 
