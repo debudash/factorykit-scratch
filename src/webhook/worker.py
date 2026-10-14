@@ -3,3 +3,8 @@ def backoff_delays(max_attempts: int) -> list[float]:
     if max_attempts < 1:
         raise ValueError("max_attempts must be at least 1")
     return [float(2 ** i) for i in range(max_attempts)]
+
+
+def is_permanent_failure(status: int) -> bool:
+    """4xx other than 429 is permanent: no retry (LLD section 4)."""
+    return 400 <= status < 500 and status != 429
