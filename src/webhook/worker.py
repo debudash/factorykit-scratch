@@ -1,3 +1,6 @@
+ATTEMPT_TIMEOUT_SECONDS = 5.0  # per attempt (LLD section 4)
+
+
 def backoff_delays(max_attempts: int) -> list[float]:
     """Return one delay per attempt, doubling from 1.0 (3 -> [1.0, 2.0, 4.0])."""
     if max_attempts < 1:
